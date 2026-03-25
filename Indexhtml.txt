@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udemy Clone - Interactive</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: white;
+}
+
+/* Header */
+.header {
+    background: #1c1c1c;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Container */
+.container {
+    padding: 15px;
+}
+
+/* Course Card */
+.card {
+    background: #1c1c1c;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Thumbnail */
+.thumbnail {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Content */
+.card-content {
+    padding: 12px;
+}
+
+.course-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.instructor {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Progress */
+.progress {
+    margin-top: 10px;
+    background: #333;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 6px;
+    background: #a435f0;
+}
+
+/* Completed text */
+.completed {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+/* Bottom Nav */
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #1c1c1c;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.active {
+    color: #a435f0;
+}
+
+/* Hide pages initially */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header" id="header-title">My Learning</div>
+
+<div class="container">
+
+    <!-- Home Page -->
+    <div id="home" class="page">
+        <h2>Recommended Courses</h2>
+
+        <div class="card">
+            <div class="thumbnail" style="background-image:url('https://img-c.udemycdn.com/course/480x270/750396_3675_3.jpg');"></div>
+            <div class="card-content">
+                <div class="course-title">Complete Python Bootcamp</div>
+                <div class="instructor">By Jose Portilla</div>
+                <div class="progress"><div class="progress-bar" style="width:0%;"></div></div>
+                <div class="completed" style="color:#aaa;">Not Started</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="thumbnail" style="background-image:url('https://img-c.udemycdn.com/course/480x270/567192_c3f3_4.jpg');"></div>
+            <div class="card-content">
+                <div class="course-title">Java Programming Masterclass</div>
+                <div class="instructor">By Tim Buchalka</div>
+                <div class="progress"><div class="progress-bar" style="width:0%;"></div></div>
+                <div class="completed" style="color:#aaa;">Not Started</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Learning Page -->
+    <div id="learning" class="page active">
+
+        <!-- Main course -->
+        <div class="card">
+            <div class="thumbnail" style="background-image:url('https://img-c.udemycdn.com/course/480x270/1565838_e54e_16.jpg');"></div>
+            <div class="card-content">
+                <div class="course-title">The Complete Digital Marketing Masterclass</div>
+                <div class="instructor">By John Smith</div>
+                <div class="progress"><div class="progress-bar" style="width:100%;"></div></div>
+                <div class="completed" style="color:#4caf50;">✔ Completed • 100%</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="thumbnail" style="background-image:url('https://img-c.udemycdn.com/course/480x270/750396_3675_3.jpg');"></div>
+            <div class="card-content">
+                <div class="course-title">Complete Python Bootcamp</div>
+                <div class="instructor">By Jose Portilla</div>
+                <div class="progress"><div class="progress-bar" style="width:70%;"></div></div>
+                <div class="completed" style="color:#ffc107;">⌛ In Progress • 70%</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="thumbnail" style="background-image:url('https://img-c.udemycdn.com/course/480x270/567192_c3f3_4.jpg');"></div>
+            <div class="card-content">
+                <div class="course-title">Java Programming Masterclass</div>
+                <div class="instructor">By Tim Buchalka</div>
+                <div class="progress"><div class="progress-bar" style="width:45%;"></div></div>
+                <div class="completed" style="color:#ffc107;">⌛ In Progress • 45%</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Search Page -->
+    <div id="search" class="page">
+        <h2>Search Courses</h2>
+        <p>Type a keyword to explore courses.</p>
+        <div class="card">
+            <div class="thumbnail" style="background-image:url('https://img-c.udemycdn.com/course/480x270/750396_3675_3.jpg');"></div>
+            <div class="card-content">
+                <div class="course-title">Complete Python Bootcamp</div>
+                <div class="instructor">By Jose Portilla</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Page -->
+    <div id="wishlist" class="page">
+        <h2>Your Wishlist</h2>
+        <p>No courses added yet.</p>
+    </div>
+
+    <!-- Profile / Account Page -->
+    <div id="account" class="page">
+        <h2>Profile</h2>
+        <p>Name: <strong>Afnan Ahmed</strong></p>
+        <p>Email: afnan.ahmed@example.com</p>
+        <h3>My Courses</h3>
+
+        <!-- All My Learning courses stacked vertically -->
+        <div class="card">
+            <div class="thumbnail" style="background-image:url('https://img-c.udemycdn.com/course/480x270/1565838_e54e_16.jpg');"></div>
+            <div class="card-content">
+                <div class="course-title">The Complete Digital Marketing Masterclass</div>
+                <div class="instructor">By John Smith</div>
+                <div class="progress"><div class="progress-bar" style="width:100%;"></div></div>
+                <div class="completed" style="color:#4caf50;">✔ Completed • 100%</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="thumbnail" style="background-image:url('https://img-c.udemycdn.com/course/480x270/750396_3675_3.jpg');"></div>
+            <div class="card-content">
+                <div class="course-title">Complete Python Bootcamp</div>
+                <div class="instructor">By Jose Portilla</div>
+                <div class="progress"><div class="progress-bar" style="width:70%;"></div></div>
+                <div class="completed" style="color:#ffc107;">⌛ In Progress • 70%</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="thumbnail" style="background-image:url('https://img-c.udemycdn.com/course/480x270/567192_c3f3_4.jpg');"></div>
+            <div class="card-content">
+                <div class="course-title">Java Programming Masterclass</div>
+                <div class="instructor">By Tim Buchalka</div>
+                <div class="progress"><div class="progress-bar" style="width:45%;"></div></div>
+                <div class="completed" style="color:#ffc107;">⌛ In Progress • 45%</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bottom Navigation -->
+<div class="navbar">
+    <div class="nav-item" onclick="switchPage('home', this)">Home</div>
+    <div class="nav-item" onclick="switchPage('search', this)">Search</div>
+    <div class="nav-item active" onclick="switchPage('learning', this)">My Learning</div>
+    <div class="nav-item" onclick="switchPage('wishlist', this)">Wishlist</div>
+    <div class="nav-item" onclick="switchPage('account', this)">Profile</div>
+</div>
+
+<script>
+function switchPage(pageId, element) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    document.getElementById('header-title').innerText = element.innerText;
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    element.classList.add('active');
+}
+</script>
+
+</body>
+</html>
